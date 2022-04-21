@@ -205,7 +205,7 @@ class StatusButton extends StatelessWidget {
         label,
       ),
       style: ElevatedButton.styleFrom(
-          fixedSize: Size(110.w, 30.h),
+          fixedSize: Size(110.w, 24.h),
           primary: _colorButton(label),
           padding: EdgeInsets.zero,
           textStyle: AppTextStyle.text13Regular(),
