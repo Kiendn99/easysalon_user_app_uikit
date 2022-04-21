@@ -134,6 +134,7 @@ class ButtonsPage extends StatelessWidget {
         ),
         Wrap(
           spacing: 5.w,
+          runSpacing: 10.w,
           children: buttonList,
         ),
       ],
