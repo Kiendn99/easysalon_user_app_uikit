@@ -10,4 +10,5 @@ class AppColors {
   static const mediumPink = Color(0xFFFCA5BE); 
   static const mediumPinkPurple = Color(0xFFC5A8FF); 
   static const mediumGrey = Color(0xFF8F9BB3); 
+  static const lightGrey = Color(0xFFF0F4F7); 
 }

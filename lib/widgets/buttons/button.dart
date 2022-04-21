@@ -2,6 +2,7 @@ import 'package:easysalon_user_app/core/extensions/image_assets_path_extension.d
 import 'package:easysalon_user_app/core/theme/app_colors.dart';
 import 'package:easysalon_user_app/core/theme/app_radius.dart';
 import 'package:easysalon_user_app/core/theme/app_text_style.dart';
+import 'package:easysalon_user_app/core/utils/navigation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -46,62 +47,45 @@ class BasicButton extends StatelessWidget {
   }
 }
 
-class BasicButtonWidth200 extends StatelessWidget {
+class BasicButtonWidth200 extends BasicButton {
   final String? label;
   final String? suffixIcon;
   final Color? backgroundColor;
   void Function()? onPressed;
 
-  BasicButtonWidth200({Key? key, this.label, this.suffixIcon, this.backgroundColor, this.onPressed}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BasicButton(
-      label: label,
-      suffixIcon: suffixIcon,
-      backgroundColor: backgroundColor,
-      width: 200,
-      onPressed: onPressed,
-    );
-  }
+  BasicButtonWidth200({Key? key, this.label, this.suffixIcon, this.backgroundColor, this.onPressed})
+      : super(key: key, label: label, suffixIcon: suffixIcon, width: 200, backgroundColor: backgroundColor, onPressed: onPressed);
 }
 
-class FullWidthButtonDefault extends StatelessWidget {
+class FullWidthButtonDefault extends BasicButton {
   final String? label;
   final String? suffixIcon;
   final Color? backgroundColor;
   void Function()? onPressed;
 
-  FullWidthButtonDefault({Key? key, this.label, this.suffixIcon, this.backgroundColor, this.onPressed}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BasicButton(
-      label: label,
-      suffixIcon: suffixIcon,
-      backgroundColor: backgroundColor,
-      width: MediaQuery.of(context).size.width,
-      onPressed: onPressed,
-    );
-  }
+  FullWidthButtonDefault({Key? key, this.label, this.suffixIcon, this.backgroundColor, this.onPressed})
+      : super(
+            key: key,
+            label: label,
+            suffixIcon: suffixIcon,
+            backgroundColor: backgroundColor,
+            width: MediaQuery.of(NavigationService.navigatorKey.currentContext!).size.width,
+            onPressed: onPressed);
 }
 
-class GreenFullWidthButton extends StatelessWidget {
+class GreenFullWidthButton extends FullWidthButtonDefault {
   final String? label;
   final String? suffixIcon;
   void Function()? onPressed;
 
-  GreenFullWidthButton({Key? key, this.label, this.suffixIcon, this.onPressed}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return FullWidthButtonDefault(
-      label: label,
-      suffixIcon: suffixIcon,
-      backgroundColor: AppColors.freshGreen,
-      onPressed: onPressed,
-    );
-  }
+  GreenFullWidthButton({Key? key, this.label, this.suffixIcon, this.onPressed})
+      : super(
+          key: key,
+          label: label,
+          suffixIcon: suffixIcon,
+          backgroundColor: AppColors.freshGreen,
+          onPressed: onPressed,
+        );
 }
 
 class CoupleOptionButton extends StatelessWidget {
@@ -241,7 +225,7 @@ class StatusButton extends StatelessWidget {
       case "Đã thanh toán":
         return AppColors.freshGreen;
       default:
-        return null;
+        return backgroundColor;
     }
   }
 }
