@@ -83,7 +83,7 @@ class GreenFullWidthButton extends FullWidthButtonDefault {
           key: key,
           label: label,
           prefixIcon: prefixIcon,
-          backgroundColor: AppColors.freshGreen,
+          backgroundColor: AppColors.freshOrange,
           onPressed: onPressed,
         );
 }
