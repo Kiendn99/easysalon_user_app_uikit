@@ -27,7 +27,7 @@ class BarsPage extends StatelessWidget {
                 children: [
                   TypeComponentGroup(type: "Bottom Bar", componentList: [
                     Container(
-                      height: 300.h,
+                      height: 200.h,
                       child: BottomNavigationAppBar(),
                     )
                   ])
