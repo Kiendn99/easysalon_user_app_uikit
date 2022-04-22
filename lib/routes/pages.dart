@@ -1,3 +1,4 @@
+import 'package:easysalon_user_app/pages/bars_page.dart';
 import 'package:easysalon_user_app/pages/textfield_page.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,7 @@ class AppPages {
         Routes.widgetHome: (context) => WidgetsHomePage(),
         Routes.textField: (context) => TextFieldPage(),
         Routes.button: (context) => ButtonsPage(),
+        Routes.bar: (context) => BarsPage(),
         Routes.paragraph: (context) => ParagraphPage(),
         
       };

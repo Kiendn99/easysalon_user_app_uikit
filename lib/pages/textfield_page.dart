@@ -48,6 +48,7 @@ class TextFieldPage extends StatelessWidget {
                         hintText: "Viết đánh giá của bạn ở đây...",
                         minLines: 5,
                         maxLines: null,
+                        contentPadding: EdgeInsets.only(top: 19.h, left: 16.w),
                         textStyle: AppTextStyle.text16Regular(),
                       ),
                     ]),

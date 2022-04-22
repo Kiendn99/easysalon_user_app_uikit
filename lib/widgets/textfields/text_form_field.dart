@@ -18,10 +18,22 @@ class TextFormFieldDefault extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextEditingController? controller;
   final bool? hideText;
+  final EdgeInsetsGeometry? contentPadding;
   void Function()? suffixIconOnTap;
 
   TextFormFieldDefault(
-      {Key? key, required this.hintText, this.prefixIcon, this.suffixIcon, this.validator, this.controller, this.hideText, this.suffixIconOnTap, this.maxLines = 1, this.minLines, this.textStyle})
+      {Key? key,
+      required this.hintText,
+      this.prefixIcon,
+      this.suffixIcon,
+      this.validator,
+      this.controller,
+      this.hideText,
+      this.suffixIconOnTap,
+      this.maxLines = 1,
+      this.minLines,
+      this.contentPadding,
+      this.textStyle})
       : super(key: key);
 
   @override
@@ -35,13 +47,13 @@ class TextFormFieldDefault extends StatelessWidget {
       minLines: minLines ?? 1,
       maxLines: maxLines,
       textAlignVertical: TextAlignVertical.center,
-      style: textStyle??AppTextStyle.text13Regular(),
+      style: textStyle ?? AppTextStyle.text13Regular(),
       validator: validator,
       decoration: InputDecoration(
           filled: true,
           alignLabelWithHint: true,
-          contentPadding: EdgeInsets.only(top: 14.h, bottom: 14.h, left: 26.w, right: 15.w),
-          hintStyle: textStyle??AppTextStyle.text13Regular(),
+          contentPadding: contentPadding?? EdgeInsets.only(top: 14.h, bottom: 14.h, left: 26.w, right: 15.w),
+          hintStyle: textStyle ?? AppTextStyle.text13Regular(),
           hintText: hintText,
           isDense: true,
           suffixIcon: suffixIcon == null

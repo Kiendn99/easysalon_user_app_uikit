@@ -14,5 +14,13 @@ class AppImages {
   static const icHidePass = "hide_pass_icn";
   static const icShowPass = "show_pass_icn";
   static const icSearch = "search_icn";
+  static const icHomeSelected = "home_selected_icn";
+  static const icHomeUnSelected = "home_unselected_icn";
+  static const icCalendarSelected = "calendar_selected_icn";
+  static const icCalendarUnSelected = "calendar_unselected_icn";
+  static const icNotifySelected = "notify_selected_icn";
+  static const icNotifyUnSelected = "notify_unselected_icn";
+  static const icProfileSelected = "profile_selected_icn";
+  static const icProfileUnSelected = "profile_unselected_icn";
 
 }
