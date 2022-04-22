@@ -1,117 +1,110 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:flutter_svg/svg.dart';
+import 'package:easysalon_user_app/core/extensions/image_assets_path_extension.dart';
+import 'package:easysalon_user_app/core/values/app_image.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
-// import '../../core/theme/app_colors.dart';
-// import '../../core/theme/app_radius.dart';
-// import '../../core/theme/app_text_style.dart';
-// import '../../core/values/app_image.dart';
+import '../../core/theme/app_colors.dart';
+import '../../core/theme/app_radius.dart';
+import '../../core/theme/app_text_style.dart';
 
-// Widget textFormFieldApp(
-//         {String? hintText,
-//         EdgeInsetsGeometry? contentPadding,
-//         double marginTop = 0,
-//         Widget? suffixIcon,
-//         double radius = 10,
-//         TextEditingController? controller,
-//         void Function(String?)? onSaved,
-//         int maxLines = 1,
-//         double iconHeight = 0.0,
-//         String? initialValue,
-//         TextAlign textAlign = TextAlign.start,
-//         TextStyle? style,
-//         TextStyle? errorStyle,
-//         void Function(String)? onChanged,
-//         TextInputType? keyboardType,
-//         String? Function(String?)? validator}) =>
-//     Builder(builder: (context) {
-//       return Container(
-//         margin: EdgeInsets.only(top: marginTop),
-//         child: TextFormField(
-//           textAlign: textAlign,
-//           validator: validator,
-//           onSaved: onSaved,
-//           controller: controller,
-//           initialValue: initialValue,
-//           autovalidateMode: AutovalidateMode.onUserInteraction,
-//           maxLines: maxLines,
-//           style: style,
-//           keyboardType: keyboardType,
-//           onChanged: onChanged,
-//           decoration: InputDecoration(
-//             enabledBorder: OutlineInputBorder(
-//                 borderRadius: BorderRadius.circular(radius), borderSide: BorderSide(color: context.isDarkMode ? AppColors.primaryDarkModeColor : AppColors.primaryLightModeColor)),
-//             hintText: hintText,
-//             suffixIconConstraints: BoxConstraints(minHeight: iconHeight),
-//             suffixIcon: suffixIcon,
-//             errorStyle: errorStyle,
-//             hintStyle: style,
-//             contentPadding: contentPadding,
-//             errorBorder: OutlineInputBorder(
-//                 borderRadius: BorderRadius.circular(radius), borderSide: BorderSide(color: context.isDarkMode ? AppColors.primaryDarkModeColor : AppColors.primaryLightModeColor)),
-//             focusedErrorBorder: OutlineInputBorder(
-//                 borderRadius: BorderRadius.circular(radius), borderSide: BorderSide(color: context.isDarkMode ? AppColors.primaryDarkModeColor : AppColors.primaryLightModeColor)),
-//             focusedBorder: OutlineInputBorder(
-//                 borderRadius: BorderRadius.circular(radius), borderSide: BorderSide(color: context.isDarkMode ? AppColors.primaryDarkModeColor : AppColors.primaryLightModeColor)),
-//           ),
-//         ),
-//       );
-//     });
+class TextFormFieldDefault extends StatelessWidget {
+  final String hintText;
+  final String? prefixIcon;
+  final String? suffixIcon;
+  final int? minLines;
+  final TextStyle? textStyle;
+  final int? maxLines;
+  final String? Function(String?)? validator;
+  final TextEditingController? controller;
+  final bool? hideText;
+  void Function()? suffixIconOnTap;
 
+  TextFormFieldDefault(
+      {Key? key, required this.hintText, this.prefixIcon, this.suffixIcon, this.validator, this.controller, this.hideText, this.suffixIconOnTap, this.maxLines = 1, this.minLines, this.textStyle})
+      : super(key: key);
 
-//     class TextFormFieldDefault extends StatelessWidget {
-//      final String? hintText,
-//       final  EdgeInsetsGeometry? contentPadding,
-//         Widget? suffixIcon,
-//         TextEditingController? controller,
-//         void Function(String?)? onSaved,
-//         int maxLines = 1,
-//         double iconHeight = 0.0,
-//         String? initialValue,
-//         TextAlign textAlign = TextAlign.start,
-//         TextStyle? style,
-//         TextStyle? errorStyle,
-//         void Function(String)? onChanged,
-//         TextInputType? keyboardType,
-//         String? Function(String?)? validator
-//       const TextFormFieldDefault({ Key? key }) : super(key: key);
-    
-//       @override
-//       Widget build(BuildContext context) {
-//         return TextFormField(
-//                       cursorColor: Colors.red,
-//                       cursorWidth: 1,
-//                       cursorHeight: 22.h,
-//                       style: AppTextStyle.text13Regular(),
-//                       validator: (value) {},
-//                       textAlignVertical: TextAlignVertical.center,
-//                       decoration: InputDecoration(
-//                           filled: true,
-//                           contentPadding: /* EdgeInsets.only(top: 14.h, bottom: 14.h, left: 26.w, right: 20.w) */ contentPadding?? EdgeInsets.zero,
-//                           hintStyle: AppTextStyle.text13Regular(color: AppColors.lightGrey),
-//                           hintText: "Mật khẩu",
-//                           isDense: true,
-                          
-//                           alignLabelWithHint: true,
-//                           suffixIcon: Container(
-//                             margin: EdgeInsets.only(right: 12.w),
-//                             child: GestureDetector(
-//                               onTap: () {
-//                                 print("object");
-//                               },
-//                               child: SvgPicture.asset(
-//                                 AppImages.icShowPass.getSVGImageAssets,
-//                               ),
-//                             ),
-//                           ),
-//                           suffixIconConstraints: BoxConstraints(maxHeight: 36.h, maxWidth: 36.w),
-//                           fillColor: AppColors.superLightGrey,
-//                           border: OutlineInputBorder(
-//                               borderRadius: BorderRadius.circular(
-//                                 AppRadius.radius8,
-//                               ),
-//                               borderSide: BorderSide.none)),
-//                     );
-//       }
-//     }sdfds
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      cursorColor: Colors.red,
+      cursorWidth: 1,
+      cursorHeight: 22.h,
+      controller: controller,
+      obscureText: hideText ?? false,
+      minLines: minLines ?? 1,
+      maxLines: maxLines,
+      textAlignVertical: TextAlignVertical.center,
+      style: textStyle??AppTextStyle.text13Regular(),
+      validator: validator,
+      decoration: InputDecoration(
+          filled: true,
+          alignLabelWithHint: true,
+          contentPadding: EdgeInsets.only(top: 14.h, bottom: 14.h, left: 26.w, right: 15.w),
+          hintStyle: textStyle??AppTextStyle.text13Regular(),
+          hintText: hintText,
+          isDense: true,
+          suffixIcon: suffixIcon == null
+              ? null
+              : Container(
+                  margin: EdgeInsets.only(right: 12.w),
+                  child: GestureDetector(
+                    onTap: suffixIconOnTap,
+                    child: SvgPicture.asset(
+                      suffixIcon!.getSVGImageAssets,
+                    ),
+                  ),
+                ),
+          suffixIconConstraints: BoxConstraints(maxHeight: 36.h),
+          prefixIcon: prefixIcon == null
+              ? null
+              : Container(
+                  margin: EdgeInsets.only(left: 12.w, right: 10.w),
+                  child: SvgPicture.asset(
+                    prefixIcon!.getSVGImageAssets,
+                  ),
+                ),
+          prefixIconConstraints: BoxConstraints(maxHeight: 36.h),
+          fillColor: AppColors.superLightGrey,
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(
+                AppRadius.radius8,
+              ),
+              borderSide: BorderSide.none)),
+    );
+  }
+}
+
+class PassWordTextFormField extends StatefulWidget {
+  final String hintText;
+  final String? Function(String?)? validator;
+  final TextEditingController? controller;
+
+  PassWordTextFormField({
+    Key? key,
+    required this.hintText,
+    this.validator,
+    this.controller,
+  }) : super(key: key);
+
+  @override
+  State<PassWordTextFormField> createState() => _PassWordTextFormFieldState();
+}
+
+class _PassWordTextFormFieldState extends State<PassWordTextFormField> {
+  bool hideText = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormFieldDefault(
+      hintText: widget.hintText,
+      hideText: hideText,
+      suffixIcon: hideText ? AppImages.icHidePass : AppImages.icShowPass,
+      suffixIconOnTap: () => setState(() {
+        hideText = !hideText;
+      }),
+      validator: widget.validator,
+      controller: widget.controller,
+    );
+  }
+}

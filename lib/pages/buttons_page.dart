@@ -6,6 +6,8 @@ import 'package:easysalon_user_app/widgets/header/bacsic_header_intro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../widgets/type component group/type_component_group.dart';
+
 class ButtonsPage extends StatelessWidget {
   const ButtonsPage({Key? key}) : super(key: key);
 
@@ -27,7 +29,7 @@ class ButtonsPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _typeGroupButton(type: "Button with width 200", buttonList: [
+                    TypeComponentGroup(type: "Button with width 200", componentList: [
                       BasicButtonWidth200(
                         label: "Đến trang chủ",
                         onPressed: () {},
@@ -38,7 +40,7 @@ class ButtonsPage extends StatelessWidget {
                         onPressed: () {},
                       ),
                     ]),
-                    _typeGroupButton(type: "Full width", buttonList: [
+                    TypeComponentGroup(type: "Full width", componentList: [
                       GreenFullWidthButton(
                         label: "Đăng nhập",
                         onPressed: () {},
@@ -53,7 +55,7 @@ class ButtonsPage extends StatelessWidget {
                         onPressed: () {},
                       ),
                     ]),
-                    _typeGroupButton(type: "Couple Option", buttonList: [
+                    TypeComponentGroup(type: "Couple Option", componentList: [
                       CoupleOptionButton(
                         labelButton1: "Gửi đánh giá",
                         labelButton2: "Đặt lại",
@@ -63,7 +65,7 @@ class ButtonsPage extends StatelessWidget {
                         onPressedButton2: () {},
                       )
                     ]),
-                    _typeGroupButton(type: "Button Icon with Radius 16", buttonList: [
+                    TypeComponentGroup(type: "Button Icon with Radius 16", componentList: [
                       IconButtonWithRadius16(
                         icon: AppImages.icCalendar,
                         color: AppColors.mediumBlue,
@@ -89,7 +91,7 @@ class ButtonsPage extends StatelessWidget {
                         onPressed: () {},
                       ),
                     ]),
-                    _typeGroupButton(type: "Status Button", buttonList: [
+                    TypeComponentGroup(type: "Status Button", componentList: [
                       StatusButton(
                         label: "Đã xác nhận",
                         onPressed: () {},
@@ -121,23 +123,4 @@ class ButtonsPage extends StatelessWidget {
     );
   }
 
-  _typeGroupButton({required String type, required List<Widget> buttonList}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 20.h),
-          child: Text(
-            type,
-            style: AppTextStyle.text20Medium(color: Colors.grey),
-          ),
-        ),
-        Wrap(
-          spacing: 5.w,
-          runSpacing: 10.w,
-          children: buttonList,
-        ),
-      ],
-    );
-  }
 }

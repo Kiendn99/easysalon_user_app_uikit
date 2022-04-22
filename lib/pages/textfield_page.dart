@@ -1,11 +1,9 @@
-import 'package:easysalon_user_app/core/extensions/image_assets_path_extension.dart';
-import 'package:easysalon_user_app/core/theme/app_colors.dart';
-import 'package:easysalon_user_app/core/theme/app_radius.dart';
 import 'package:easysalon_user_app/core/theme/app_text_style.dart';
 import 'package:easysalon_user_app/core/values/app_image.dart';
+import 'package:easysalon_user_app/widgets/textfields/text_form_field.dart';
+import 'package:easysalon_user_app/widgets/type%20component%20group/type_component_group.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../widgets/header/bacsic_header_intro.dart';
 
@@ -26,43 +24,33 @@ class TextFieldPage extends StatelessWidget {
                 description: "To trigger an operation",
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.w),
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Column(
                   children: [
-                    TextFormField(
-                      cursorColor: Colors.red,
-                      cursorWidth: 1,
-                      cursorHeight: 22.h,
-                      style: AppTextStyle.text13Regular(),
-                      validator: (value) {},
-                      textAlignVertical: TextAlignVertical.center,
-                      decoration: InputDecoration(
-                          filled: true,
-                          contentPadding: EdgeInsets.only(top: 14.h, bottom: 14.h, left: 26.w, right: 20.w),
-                          hintStyle: AppTextStyle.text13Regular(color: AppColors.lightGrey),
-                          hintText: "Mật khẩu",
-                          isDense: true,
-                          
-                          alignLabelWithHint: true,
-                          suffixIcon: Container(
-                            margin: EdgeInsets.only(right: 12.w),
-                            child: GestureDetector(
-                              onTap: () {
-                                print("object");
-                              },
-                              child: SvgPicture.asset(
-                                AppImages.icShowPass.getSVGImageAssets,
-                              ),
-                            ),
-                          ),
-                          suffixIconConstraints: BoxConstraints(maxHeight: 36.h, maxWidth: 36.w),
-                          fillColor: AppColors.superLightGrey,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(
-                                AppRadius.radius8,
-                              ),
-                              borderSide: BorderSide.none)),
-                    )
+                    TypeComponentGroup(type: "TextFormField Default", componentList: [
+                      TextFormFieldDefault(
+                        hintText: "Email hoặc số điện thoại",
+                      ),
+                      TextFormFieldDefault(
+                        hintText: "Searching",
+                        prefixIcon: AppImages.icSearch,
+                      ),
+                      TextFormFieldDefault(
+                        hintText: "Searching",
+                        suffixIcon: AppImages.icSearch,
+                      ),
+                    ]),
+                    TypeComponentGroup(type: "Password", componentList: [
+                      PassWordTextFormField(hintText: "Mật khẩu"),
+                    ]),
+                    TypeComponentGroup(type: "Write Review", componentList: [
+                      TextFormFieldDefault(
+                        hintText: "Viết đánh giá của bạn ở đây...",
+                        minLines: 5,
+                        maxLines: null,
+                        textStyle: AppTextStyle.text16Regular(),
+                      ),
+                    ]),
                   ],
                 ),
               )
