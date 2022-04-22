@@ -9,12 +9,12 @@ import 'package:flutter_svg/svg.dart';
 
 class BasicButton extends StatelessWidget {
   final String? label;
-  final String? suffixIcon;
+  final String? prefixIcon;
   final double? width;
   final Color? backgroundColor;
   void Function()? onPressed;
 
-  BasicButton({Key? key, this.label, this.suffixIcon, this.width, this.backgroundColor, this.onPressed}) : super(key: key);
+  BasicButton({Key? key, this.label, this.prefixIcon, this.width, this.backgroundColor, this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +24,11 @@ class BasicButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Visibility(
-              visible: suffixIcon == null ? false : true,
+              visible: prefixIcon == null ? false : true,
               child: Container(
                   margin: EdgeInsets.only(right: 10.w),
                   child: SvgPicture.asset(
-                    suffixIcon.toString().getSVGImageAssets,
+                    prefixIcon.toString().getSVGImageAssets,
                     width: 20.h,
                     height: 20.h,
                   ))),
@@ -49,25 +49,25 @@ class BasicButton extends StatelessWidget {
 
 class BasicButtonWidth200 extends BasicButton {
   final String? label;
-  final String? suffixIcon;
+  final String? prefixIcon;
   final Color? backgroundColor;
   void Function()? onPressed;
 
-  BasicButtonWidth200({Key? key, this.label, this.suffixIcon, this.backgroundColor, this.onPressed})
-      : super(key: key, label: label, suffixIcon: suffixIcon, width: 200, backgroundColor: backgroundColor, onPressed: onPressed);
+  BasicButtonWidth200({Key? key, this.label, this.prefixIcon, this.backgroundColor, this.onPressed})
+      : super(key: key, label: label, prefixIcon: prefixIcon, width: 200, backgroundColor: backgroundColor, onPressed: onPressed);
 }
 
 class FullWidthButtonDefault extends BasicButton {
   final String? label;
-  final String? suffixIcon;
+  final String? prefixIcon;
   final Color? backgroundColor;
   void Function()? onPressed;
 
-  FullWidthButtonDefault({Key? key, this.label, this.suffixIcon, this.backgroundColor, this.onPressed})
+  FullWidthButtonDefault({Key? key, this.label, this.prefixIcon, this.backgroundColor, this.onPressed})
       : super(
             key: key,
             label: label,
-            suffixIcon: suffixIcon,
+            prefixIcon: prefixIcon,
             backgroundColor: backgroundColor,
             width: MediaQuery.of(NavigationService.navigatorKey.currentContext!).size.width,
             onPressed: onPressed);
@@ -75,14 +75,14 @@ class FullWidthButtonDefault extends BasicButton {
 
 class GreenFullWidthButton extends FullWidthButtonDefault {
   final String? label;
-  final String? suffixIcon;
+  final String? prefixIcon;
   void Function()? onPressed;
 
-  GreenFullWidthButton({Key? key, this.label, this.suffixIcon, this.onPressed})
+  GreenFullWidthButton({Key? key, this.label, this.prefixIcon, this.onPressed})
       : super(
           key: key,
           label: label,
-          suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
           backgroundColor: AppColors.freshGreen,
           onPressed: onPressed,
         );
@@ -91,8 +91,8 @@ class GreenFullWidthButton extends FullWidthButtonDefault {
 class CoupleOptionButton extends StatelessWidget {
   final String labelButton1;
   final String labelButton2;
-  final String? suffixIcon1;
-  final String? suffixIcon2;
+  final String? prefixIcon1;
+  final String? prefixIcon2;
   final Color? colorButton1;
   final Color? colorButton2;
   void Function()? onPressedButton1;
@@ -102,8 +102,8 @@ class CoupleOptionButton extends StatelessWidget {
       {Key? key,
       required this.labelButton1,
       required this.labelButton2,
-      this.suffixIcon1,
-      this.suffixIcon2,
+      this.prefixIcon1,
+      this.prefixIcon2,
       this.colorButton1,
       this.colorButton2,
       this.onPressedButton1,
@@ -117,7 +117,7 @@ class CoupleOptionButton extends StatelessWidget {
         Expanded(
             child: FullWidthButtonDefault(
           label: labelButton1,
-          suffixIcon: suffixIcon1,
+          prefixIcon: prefixIcon1,
           backgroundColor: colorButton1,
           onPressed: onPressedButton1,
         )),
@@ -127,7 +127,7 @@ class CoupleOptionButton extends StatelessWidget {
         Expanded(
             child: FullWidthButtonDefault(
           label: labelButton2,
-          suffixIcon: suffixIcon2,
+          prefixIcon: prefixIcon2,
           backgroundColor: colorButton2,
           onPressed: onPressedButton2,
         )),

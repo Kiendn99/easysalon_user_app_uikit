@@ -34,7 +34,7 @@ class ButtonsPage extends StatelessWidget {
                       ),
                       BasicButtonWidth200(
                         label: "Quét mã QR",
-                        suffixIcon: AppImages.icQrCode,
+                        prefixIcon: AppImages.icQrCode,
                         onPressed: () {},
                       ),
                     ]),
@@ -49,7 +49,7 @@ class ButtonsPage extends StatelessWidget {
                       ),
                       FullWidthButtonDefault(
                         label: "Đăng nhập với Facebook",
-                        suffixIcon: AppImages.icFBLogin,
+                        prefixIcon: AppImages.icFBLogin,
                         onPressed: () {},
                       ),
                     ]),
@@ -58,7 +58,7 @@ class ButtonsPage extends StatelessWidget {
                         labelButton1: "Gửi đánh giá",
                         labelButton2: "Đặt lại",
                         colorButton2: AppColors.freshOrange,
-                        suffixIcon1: AppImages.icStar,
+                        prefixIcon1: AppImages.icStar,
                         onPressedButton1: () {},
                         onPressedButton2: () {},
                       )

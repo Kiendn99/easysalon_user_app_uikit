@@ -11,5 +11,6 @@ class AppImages {
   static const icOrderHistory = "order_history_icn";
   static const icVoucher = "voucher_icn";
   static const icReview = "review_icn";
+  static const icShowPass = "show_pass_icn";
 
 }
