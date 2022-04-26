@@ -12,12 +12,12 @@ class TextFormFieldDefault extends StatelessWidget {
   final String hintText;
   final String? prefixIcon;
   final String? suffixIcon;
-  final int? minLines;
+  final int minLines;
   final TextStyle? textStyle;
   final int? maxLines;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
-  final bool? hideText;
+  final bool hideText;
   final EdgeInsetsGeometry? contentPadding;
   void Function()? suffixIconOnTap;
 
@@ -28,10 +28,10 @@ class TextFormFieldDefault extends StatelessWidget {
       this.suffixIcon,
       this.validator,
       this.controller,
-      this.hideText,
+      this.hideText = false,
       this.suffixIconOnTap,
       this.maxLines = 1,
-      this.minLines,
+      this.minLines = 1,
       this.contentPadding,
       this.textStyle})
       : super(key: key);
@@ -43,8 +43,8 @@ class TextFormFieldDefault extends StatelessWidget {
       cursorWidth: 1,
       cursorHeight: 22.h,
       controller: controller,
-      obscureText: hideText ?? false,
-      minLines: minLines ?? 1,
+      obscureText: hideText ,
+      minLines: minLines ,
       maxLines: maxLines,
       textAlignVertical: TextAlignVertical.center,
       style: textStyle ?? AppTextStyle.text13Regular(),

@@ -139,14 +139,14 @@ class CoupleOptionButton extends StatelessWidget {
 class IconButtonWithRadius16 extends StatelessWidget {
   final String? label;
   final String icon;
-  final Color? color;
+  final Color color;
   void Function()? onPressed;
 
   IconButtonWithRadius16({
     Key? key,
     this.label,
     required this.icon,
-    this.color,
+    this.color = AppColors.mediumBlue,
     this.onPressed,
   }) : super(key: key);
 
@@ -162,7 +162,7 @@ class IconButtonWithRadius16 extends StatelessWidget {
               width: 24.h,
               height: 24.h,
             ),
-            color: color ?? AppColors.mediumBlue,
+            color: color,
             elevation: 1,
             onPressed: onPressed,
             minWidth: 0,

@@ -3,6 +3,7 @@ import 'package:easysalon_user_app/widgets/type%20component%20group/type_compone
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../widgets/bars/tab_bar.dart';
 import '../widgets/header/bacsic_header_intro.dart';
 
 class BarsPage extends StatelessWidget {
@@ -17,7 +18,7 @@ class BarsPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            BasicHeaderIntro(
+            const BasicHeaderIntro(
               title: 'Bar',
               description: "To trigger an operation",
             ),
@@ -28,8 +29,24 @@ class BarsPage extends StatelessWidget {
                   TypeComponentGroup(type: "Bottom Bar", componentList: [
                     Container(
                       height: 200.h,
-                      child: BottomNavigationAppBar(),
-                    )
+                      child:  BottomNavigationAppBar(),
+                    ),
+                    TypeComponentGroup(type: "TabBar", componentList: [
+                    Container(
+                      height: 200.h,
+                      child:  TabBarApp(tabs: ["Quan tâm", "Khuyến mãi", "Giao dịch", "Cập nhật"],),
+                    ),
+                    Container(
+                      height: 200.h,
+                      child:  TabBarApp(tabs: ["Chờ đánh giá", "Đã đánh giá"],),
+                    ),
+                    Container(
+                      height: 200.h,
+                      child:  TabBarApp(tabs: ["Tất cả lịch sử", "Đã nhận", "Đã dùng"],),
+                    ),
+                    
+                    
+                  ]),
                   ])
                 ],
               ),
