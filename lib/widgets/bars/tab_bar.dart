@@ -1,4 +1,5 @@
 import 'package:easysalon_user_app/core/theme/app_colors.dart';
+import 'package:easysalon_user_app/core/theme/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -40,7 +41,7 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
   _tabBar() {
     return TabBar(
       controller: _tabController,
-      labelStyle: TextStyle(fontSize: 16.sp),
+      labelStyle: AppTextStyle.text16Regular(),
       tabs: List.generate(
           widget.tabs.length,
           (index) => Padding(
@@ -58,7 +59,7 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
   }
 
   _tabBarView() {
-    return Expanded(child: TabBarView(controller: _tabController, children: List.generate(widget.tabs.length, (index) => Center(child: Text(widget.tabs[index])))));
+    return Expanded(child: TabBarView(controller: _tabController, children: List.generate(widget.tabs.length, (index) => Center(child: Text(widget.tabs[index], style: AppTextStyle.text20Regular())))));
   }
 
   @override
