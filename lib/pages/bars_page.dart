@@ -34,15 +34,15 @@ class BarsPage extends StatelessWidget {
                     TypeComponentGroup(type: "TabBar", componentList: [
                     Container(
                       height: 200.h,
-                      child:  const TabBarApp(tabs: ["Quan tâm", "Khuyến mãi", "Giao dịch", "Cập nhật"],),
+                      child:   TabBarApp(tabs: ["Quan tâm", "Khuyến mãi", "Giao dịch", "Cập nhật"], onTap: (value){},),
                     ),
                     Container(
                       height: 200.h,
-                      child:  const TabBarApp(tabs: ["Chờ đánh giá", "Đã đánh giá"],),
+                      child:   TabBarApp(tabs: ["Chờ đánh giá", "Đã đánh giá"], onTap: (value){},),
                     ),
                     Container(
                       height: 200.h,
-                      child:  const TabBarApp(tabs: ["Tất cả lịch sử", "Đã nhận", "Đã dùng"],),
+                      child:   TabBarApp(tabs: ["Tất cả lịch sử", "Đã nhận", "Đã dùng"], onTap: (value){},),
                     ),
                     
                     

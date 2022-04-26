@@ -5,8 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TabBarApp extends StatefulWidget {
   final List<String> tabs;
+  void Function(int)? onTap;
 
-  const TabBarApp({Key? key, required this.tabs}) : super(key: key);
+   TabBarApp({Key? key, required this.tabs, this.onTap}) : super(key: key);
 
   @override
   State<TabBarApp> createState() => _TabBarAppState();
@@ -51,6 +52,7 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
                 ),
               )),
       indicatorColor: AppColors.mediumBlue,
+      onTap: widget.onTap,
       labelPadding: (widget.tabs.length < 4 || MediaQuery.of(context).size.width > 400) ? EdgeInsets.zero : null,
       labelColor: AppColors.mediumBlue,
       unselectedLabelColor: AppColors.mediumGrey,
@@ -59,7 +61,9 @@ class _TabBarAppState extends State<TabBarApp> with TickerProviderStateMixin {
   }
 
   _tabBarView() {
-    return Expanded(child: TabBarView(controller: _tabController, children: List.generate(widget.tabs.length, (index) => Center(child: Text(widget.tabs[index], style: AppTextStyle.text20Regular())))));
+    return Expanded(
+        child: TabBarView(
+            controller: _tabController, children: List.generate(widget.tabs.length, (index) => Center(child: Text(widget.tabs[index], style: AppTextStyle.text20Regular())))));
   }
 
   @override
